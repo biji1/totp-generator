@@ -1,0 +1,62 @@
+﻿<Window x:Class="totp_generator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="totp generator - Noel Do Van"
+        Height="350" Width="525"
+        WindowStyle="None" ResizeMode="NoResize"
+        Icon="../totp-generator-icon.ico">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="70*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Row="0">
+                <Button Background="#26F282" Foreground="White" FontSize="17" Click="SaveCurrent">Save current</Button>
+            </Grid>
+            <Grid Row="1">
+                <Button Background="#DD3737" Foreground="White" FontSize="15" Click="DeleteSelected">Delete selected</Button>
+            </Grid>
+            <Grid Row="2">
+                <Button Background="#2C64F4" Foreground="White" FontSize="20" Click="Selected">Select</Button>
+            </Grid>
+            <Grid Row="3">
+                <ListBox Name="ListBoxAccount" ItemsSource="{Binding Path=XmlManager.ListAccount}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Path=Name}" Margin="5,7,5,7" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+
+        <Grid Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Background="#212121" MouseDown="topDrag" />
+            <Grid Grid.Row="1" Background="#2E2E2E" />
+            <Grid Grid.Row="3" Background="#00AEFF" />
+            <Label Name="CLOSE" FontFamily="Comic Sans Ms" FontSize="20" Foreground="White" Content="X" Margin="400,-10,-90.2,26.4" MouseDown="closeApp"></Label>
+            <Label Grid.Row="0" Name="labelKey" Foreground="White" Content="Copy paste your shared secret key here" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="topDrag"></Label>
+            <TextBox Grid.Row="1" Name="textKey" Background="White" Width="220" MaxLength="39" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
+            <Label Grid.Row="2" Name="labelCode" FontSize="30" Background="#7F53A1" Foreground="White" Padding="50,20,50,20" Content="Please enter a key" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Label Grid.Row="3" Name="labelTimeLeft" FontSize="20" Foreground="White" Margin="0" Content="( ͡° ͜ʖ ͡°)" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        </Grid>
+    </Grid>
+    
+</Window>
