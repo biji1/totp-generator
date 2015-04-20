@@ -55,6 +55,7 @@
             <Label Grid.Row="0" Name="labelKey" Foreground="White" Content="Copy paste your shared secret key here" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="topDrag"></Label>
             <TextBox Grid.Row="1" Name="textKey" Background="White" Width="220" MaxLength="39" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
             <Label Grid.Row="2" Name="labelCode" FontSize="30" Background="#7F53A1" Foreground="White" Padding="50,20,50,20" Content="Please enter a key" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <Image Grid.Row="2" Name="imgClipboard" Source="clipboard-icon.png" Width="50" Margin="300 0 0 0" Visibility="Collapsed" MouseDown="CopyToClipboard"/>
             <Label Grid.Row="3" Name="labelTimeLeft" FontSize="20" Foreground="White" Margin="0" Content="( ͡° ͜ʖ ͡°)" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </Grid>
     </Grid>

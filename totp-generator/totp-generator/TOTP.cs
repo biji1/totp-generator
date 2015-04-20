@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace totp_generator
@@ -37,7 +38,16 @@ namespace totp_generator
         }
         public String Code
         {
-            get { return _code.ToString(); }
+            get
+            {
+                // 6 because its the size of the google totp
+                string res = "";
+                if (_code.ToString().Length < 6)
+                    for (int i = _code.ToString().Length; i < 6; i++)
+                        res += "0";
+                res += _code.ToString();
+                return res;
+            }
         }
         public String TimeLeft
         {
@@ -95,7 +105,7 @@ namespace totp_generator
             Array.Reverse(hashPart);
             uint number = BitConverter.ToUInt32(hashPart, 0);
             /*
-             * Troncate 6 characters
+             * Troncate 6 characters (6 because its the size of the google totp)
              */
             _code = number % 1000000;
         }

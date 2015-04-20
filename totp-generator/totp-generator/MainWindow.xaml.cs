@@ -48,6 +48,7 @@ namespace totp_generator
             if (code.Length < 3)
             {
                 labelCode.Content = "Please enter a key";
+                imgClipboard.Visibility = Visibility.Collapsed;
                 labelTimeLeft.Content = "( ͡° ͜ʖ ͡°)";
             }
             else
@@ -55,6 +56,7 @@ namespace totp_generator
                 _totp.Key = code;
                 _totp.Refresh();
                 labelCode.Content = _totp.Code;
+                imgClipboard.Visibility = Visibility.Visible;
                 labelTimeLeft.Content = "Code expire in " + _totp.TimeLeft + " second";
                 if (_totp.TimeLeft != "1")
                     labelTimeLeft.Content += "s";
@@ -107,6 +109,11 @@ namespace totp_generator
                 Account item = (Account)ListBoxAccount.SelectedItem;
                 textKey.Text = item.Key;
             }
+        }
+
+        private void CopyToClipboard(object sender, MouseButtonEventArgs e)
+        {
+            Clipboard.SetText(_totp.Code);
         }
     }
 }
