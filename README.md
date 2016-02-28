@@ -1,7 +1,7 @@
 # totp-generator
 Generate a TOTP token (2-Step Verification) using secret key from services like google, dropbox, etc.
 
-![alt tag](https://github.com/biji1/totp-generator/tree/master/res/screen.jpg)
+![alt tag](https://raw.githubusercontent.com/biji1/totp-generator/master/res/screen.jpg)
 
 ## Details
 - Simple implementation of the RFC 6238 (https://tools.ietf.org/html/rfc6238) in C# WPF Application.
