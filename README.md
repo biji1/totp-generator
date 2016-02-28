@@ -9,10 +9,12 @@ Generate a TOTP token using secret key from google, dropbox, etc's services.
 - ...
 
 ## Done
+
 02/27/16:
 - Auto select the first entry
 - Ask confirmation before deleting
 - Added label "copied !" when OTP saved in clipboard
+
 04/20/15:
 - Button copy to clipboard added
 - Fixed OTP beginning with 0
