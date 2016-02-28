@@ -31,6 +31,13 @@ namespace totp_generator
             myTimer.Enabled = true;
             _xmlManager = new MyXML();
             _xmlManager.Refresh(ListBoxAccount);
+
+            // to select the first
+            if (ListBoxAccount.SelectedItem != null)
+            {
+                Account item = (Account)ListBoxAccount.SelectedItem;
+                textKey.Text = item.Key;
+            }
         }
 
         private void MyEvent(object source, ElapsedEventArgs e)
@@ -44,6 +51,7 @@ namespace totp_generator
 
         private void RefreshFrame()
         {
+            labelCopied.Visibility = Visibility.Collapsed;
             String code = textKey.Text;
             if (code.Length < 3)
             {
@@ -94,6 +102,9 @@ namespace totp_generator
 
         private void DeleteSelected(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+            if (messageBoxResult == MessageBoxResult.No)
+                return;
             if (ListBoxAccount.SelectedItem != null)
             {
                 Account item = (Account)ListBoxAccount.SelectedItem;
@@ -114,6 +125,7 @@ namespace totp_generator
         private void CopyToClipboard(object sender, MouseButtonEventArgs e)
         {
             Clipboard.SetText(_totp.Code);
+            labelCopied.Visibility = Visibility.Visible;
         }
     }
 }

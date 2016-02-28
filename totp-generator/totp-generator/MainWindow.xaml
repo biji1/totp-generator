@@ -30,7 +30,8 @@
                 <Button Background="#2C64F4" Foreground="White" FontSize="20" Click="Selected">Select</Button>
             </Grid>
             <Grid Row="3">
-                <ListBox Name="ListBoxAccount" ItemsSource="{Binding Path=XmlManager.ListAccount}">
+                <ListBox Name="ListBoxAccount" ItemsSource="{Binding Path=XmlManager.ListAccount}"
+                         SelectedIndex="0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Label Content="{Binding Path=Name}" Margin="5,7,5,7" />
@@ -56,6 +57,7 @@
             <TextBox Grid.Row="1" Name="textKey" Background="White" Width="220" MaxLength="39" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
             <Label Grid.Row="2" Name="labelCode" FontSize="30" Background="#7F53A1" Foreground="White" Padding="50,20,50,20" Content="Please enter a key" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
             <Image Grid.Row="2" Name="imgClipboard" Source="clipboard-icon.png" Width="50" Margin="300 0 0 0" Visibility="Collapsed" MouseDown="CopyToClipboard"/>
+            <Label  Name="labelCopied" FontSize="16" Foreground="Black" Padding="0,0,0,0" Content="copied !" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,103,28,27.4" Grid.Row="2" Visibility="Collapsed"></Label>
             <Label Grid.Row="3" Name="labelTimeLeft" FontSize="20" Foreground="White" Margin="0" Content="( ͡° ͜ʖ ͡°)" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
         </Grid>
     </Grid>
