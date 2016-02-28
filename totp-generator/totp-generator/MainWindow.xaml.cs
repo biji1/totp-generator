@@ -65,7 +65,7 @@ namespace totp_generator
                 _totp.Refresh();
                 labelCode.Content = _totp.Code;
                 imgClipboard.Visibility = Visibility.Visible;
-                labelTimeLeft.Content = "Code expire in " + _totp.TimeLeft + " second";
+                labelTimeLeft.Content = "Code expires in " + _totp.TimeLeft + " second";
                 if (_totp.TimeLeft != "1")
                     labelTimeLeft.Content += "s";
             }
